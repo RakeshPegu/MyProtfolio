@@ -10,6 +10,9 @@ const port = process.env.PORT || 8000;
 app.use(cors({origin: process.env.CLIENT_URL, credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
+app.get('/', (req,res)=>{
+    res.status(200).json({message:"Hello rakes pegu"})
+})
 app.use('/api/auth',authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/project', projectRouter)
